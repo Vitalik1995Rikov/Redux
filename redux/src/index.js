@@ -11,6 +11,8 @@ const reducer = (state, action) => {
 }
 
 let state = reducer(initialState, {type: 'INC'});
+state = reducer(state, {type: 'INC'});
+state = reducer(state, {type: 'INC'});
 console.log(state);
 
 ReactDOM.render(
