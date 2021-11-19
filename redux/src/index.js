@@ -15,6 +15,9 @@ const reducer = (state = 0, action) => {
 
 const store = createStore(reducer);
 
+store.dispatch({type: 'INC'});
+store.dispatch({type: 'INC'});
+
 console.log(store.getState());
 
 // let state = reducer(initialState, {type: 'INC'});
