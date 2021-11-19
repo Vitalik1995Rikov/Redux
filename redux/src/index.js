@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 
 const initialState = 0;
 
-const reducer = (state, action) => {
-  if (action.type === 'INC') {
-    return state + 1;
+const reducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'INC':
+      return state + 1;
+    default:
+      return state;
   }
-  return 0;
 }
 
 let state = reducer(initialState, {type: 'INC'});
