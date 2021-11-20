@@ -2,16 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
-// const initialState = 0;
+const initialState = {value: 0};
 
-const reducer = (state = 0, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INC':
-      return state + 1;
+      return {
+        ...state, 
+        value: state.value + 1
+      };
     case 'DEC':
-      return state - 1;
+      return {
+        ...state, 
+        value: state.value - 1
+      };
     case 'RND':
-      return state * action.payload;
+      return {
+        ...state, 
+        value: state.value * action.payload
+      };
     default:
       return state;
   }
