@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 const store = createStore(reducer);
 
 const update = () => {
-  document.getElementById('counter').textContent = store.getState();
+  document.getElementById('counter').textContent = store.getState().value;
 }
 
 store.subscribe(update);
