@@ -1,31 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, bindActionCreators} from 'redux';
+import {createStore} from 'redux';
 import reducer from './reducer';
-import * as actions from './actions';
-import Counter from './Counter';
+import App from './components/App';
+import { Provider } from 'react-redux';
 
 const store = createStore(reducer);
 
-const {dispatch, subscribe, getState} = store;
-const {inc, dec, rnd} = bindActionCreators(actions, dispatch);
 
-const update = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Counter
-        counter={getState().value}
-        inc={inc}
-        dec={dec}
-        rnd={() => {
-          const value = Math.floor(Math.random() * 10);
-          rnd(value);
-        }}
-      />
+      <Provider store={store}>
+        <App/>
+      </Provider>
+      
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
-update();
-subscribe(update);
-
